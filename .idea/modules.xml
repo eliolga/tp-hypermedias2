@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../api-tuto/.idea/api-tuto.iml" filepath="$PROJECT_DIR$/../api-tuto/.idea/api-tuto.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/appel-api-mac.iml" filepath="$PROJECT_DIR$/.idea/appel-api-mac.iml" />
     </modules>
   </component>
