@@ -22,6 +22,11 @@ const RechercheMusee = () => {
 		appelApi();
 	}, []);
 
+const artistes = oeuvres.map((item) => (
+		<li key={item.numero}>
+			{item.libelleNomsArtistes}
+		</li>
+	))
 
 	return (
 		<div>
@@ -31,7 +36,7 @@ const RechercheMusee = () => {
 			<ul>
 				{oeuvres.map((item) => (
 					<li key={item.numero}>
-						{item.titre}
+						{item.titre}, {item.libelleNomsArtistes}, {item.dateProduction}
 					</li>
 				))}
 			</ul>
