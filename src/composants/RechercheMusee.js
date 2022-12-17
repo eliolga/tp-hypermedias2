@@ -4,8 +4,10 @@
 import React, {useEffect, useState} from "react";
 import {Button, Input, Select} from "semantic-ui-react";
 import SelectExample from "./SelectExample";
+import CardExemple from "./CardExemple";
 
 const RechercheMusee = () => {
+
 
 	const [titre, setTitre] = useState("");
 	const [oeuvres, setOeuvres] = useState([]);
@@ -24,7 +26,6 @@ const RechercheMusee = () => {
 			.then((data) => {
 				console.log(data);
 				setOeuvres(data)
-				trouverOeuvre();
 			});
 
 		//	.catch((erreur) => console.log(erreur));
@@ -32,14 +33,17 @@ const RechercheMusee = () => {
 
 	useEffect(() => {
 		appelApi();
-		renderTitres();
+	//	renderTitres();
 	}, []);
 
 	function trouverOeuvre() {
 		oeuvres.forEach(function (element) {
 		//	console.log(element);
 			if (element.titre === titre){
-				console.log(element);
+			//	console.log(element);
+				uneOeuvre = element;
+				console.log(uneOeuvre);
+				renderOeuvres();
 			}
 		})
 	}
@@ -59,7 +63,7 @@ const RechercheMusee = () => {
 		})
 	}
 
-	const mesTitres =[];
+/*	const mesTitres =[];
 
 	function renderTitres () {
 
@@ -70,7 +74,7 @@ const RechercheMusee = () => {
 
 		})
 		console.log(mesTitres);
-	};
+	};*/
 
 	return (
 		<div>
@@ -79,7 +83,7 @@ const RechercheMusee = () => {
 			<Input type="text" value={oeuvres.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
 			{/*<Select options={oeuvres.numero} value={oeuvres.numero}/>*/}
 
-			<Button onClick={appelApi}>Recherche par titre</Button>
+			<Button onClick={event => trouverOeuvre(event.target.value)}>Recherche par titre</Button>
 			<div>
 				{/*{renderOeuvres()}*/}
 			</div>

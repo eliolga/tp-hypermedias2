@@ -10,7 +10,7 @@ export default function App() {
 		<div>
 			<h1>MAC</h1>
 			<RechercheMusee/>
-			<CardExampleCard/>
+			{/*<CardExampleCard/>*/}
 		</div>
 	);
 }
