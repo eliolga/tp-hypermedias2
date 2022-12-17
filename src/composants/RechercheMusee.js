@@ -2,9 +2,10 @@
 /*{libelleNomsArtistes, titre, dateProduction, categorie, materiaux, dimensions, lieuProduction, cultures, emplacementHorsMurs, provenance, collection, departement, dateAcquisition, numero, oeuvrePrincipale, elements, nomsArtistesTries, artistes, evenements, publications, id}*/
 
 import React, {useEffect, useState} from "react";
-import {Button, Input, Select} from "semantic-ui-react";
+import {Button, Card, CardContent, CardHeader, Input, Select} from "semantic-ui-react";
 import SelectExample from "./SelectExample";
 import CardExemple from "./CardExemple";
+import {Link} from "react-router-dom";
 
 const RechercheMusee = () => {
 
@@ -42,8 +43,10 @@ const RechercheMusee = () => {
 	//	renderTitres();
 	}, []);
 
+var indexOeuvre = 0;
+
 	function trouverOeuvre() {
-		oeuvres.forEach(function (element) {
+		oeuvres.forEach(function (element, index) {
 		//	console.log(element);
 			if (element.titre === titre){
 			//	console.log(element);
@@ -56,9 +59,32 @@ const RechercheMusee = () => {
 			}
 		})
 	}
+function testOeuvres(i) {
+	return (
+		<Card key={oeuvres[i].numero}>
+			<CardContent>
+				<CardHeader>
 
+					<p>{oeuvres[i].titre}</p>
+				</CardHeader>
+			</CardContent>
+		</Card>
+	)
+}
+	const renderOeuvres = (i) => {
+			return (
+				<Card key={oeuvres[i].numero}>
+					<CardContent>
+						<CardHeader>
 
-	const renderOeuvres = () => {
+							<p>{oeuvres[i].titre}</p>
+						</CardHeader>
+					</CardContent>
+				</Card>
+			)
+		}
+
+/*	const renderOeuvres = () => {
 		return oeuvres.map((item) => {
 			return (
 				<div>
@@ -70,7 +96,7 @@ const RechercheMusee = () => {
 				</div>
 			)
 		})
-	}
+	}*/
 
 /*	const mesTitres =[];
 
@@ -94,11 +120,22 @@ const RechercheMusee = () => {
 
 			<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
 			<div>
-				{console.log(uneOeuvre)}
-				<CardExemple  oeuvre  = {uneOeuvre}/>
-				{/*{renderOeuvres()}*/}
-			</div>
+				{console.log(global.tipit)}
+				<CardExemple  oeuvre  = {tipit}/>
+				{/*{renderOeuvres(tipit)}*/}
 
+				<Card key={oeuvres[1].numero}>
+					<CardContent>
+						<CardHeader>
+
+							<p>{oeuvres[1].titre}</p>
+							<p>{oeuvres[1].libelleNomsArtistes}</p>
+							<p>{oeuvres[1].dateProduction}</p>
+
+						</CardHeader>
+					</CardContent>
+				</Card>
+			</div>
 		</div>
 	)
 }

@@ -3,22 +3,22 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 
 const CardExampleCard = (props) => (
 	<Card>
-		{console.log(props.oeuvre)}
-		<Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+		{console.log(props)}
+		{/*<Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />*/}
 		<Card.Content>
-			<Card.Header>{props.oeuvre.titre}</Card.Header>
+			<Card.Header>{props.titre}</Card.Header>
 			<Card.Meta>
-				<span className='date'>Joined in 2015</span>
+				{/*<span className='date'>Joined in 2015</span>*/}
 			</Card.Meta>
 			<Card.Description>
-				Matthew is a musician living in Nashville.
+				{props.dateProduction}
 			</Card.Description>
 		</Card.Content>
 		<Card.Content extra>
-			<a>
+		{/*	<a>
 				<Icon name='user' />
 				22 Friends
-			</a>
+			</a>*/}
 		</Card.Content>
 	</Card>
 )
