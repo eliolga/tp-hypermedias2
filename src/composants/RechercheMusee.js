@@ -2,10 +2,9 @@
 /*{libelleNomsArtistes, titre, dateProduction, categorie, materiaux, dimensions, lieuProduction, cultures, emplacementHorsMurs, provenance, collection, departement, dateAcquisition, numero, oeuvrePrincipale, elements, nomsArtistesTries, artistes, evenements, publications, id}*/
 
 import React, {useEffect, useState} from "react";
-import {Button, Card, CardContent, CardHeader, Input, Select} from "semantic-ui-react";
+import {Button, Input, Select} from "semantic-ui-react";
 import SelectExample from "./SelectExample";
 import CardExemple from "./CardExemple";
-import {Link} from "react-router-dom";
 
 const RechercheMusee = () => {
 
@@ -15,127 +14,48 @@ const RechercheMusee = () => {
 	var tipit = {};
 	const [uneOeuvre, setUneOeuvre] = useState({})
 	const uneOeuvreHandler = () =>{
+		console.log("uneOeuvreHandler")
+		tipit = trouverOeuvre()
+		console.log(tipit)
 		setUneOeuvre(tipit);
 	}
-
-//	const [isLoading, setIsLoading] = useState(true);
-
 	const appelApi = () => {
-		//		setIsLoading(true)
-
-		//event.preventDefault();
-		// get request
-//		fetch('https://macrepertoire.macm.org/api/oeuvres/')
 		fetch('https://www.donneesquebec.ca/recherche/dataset/3b475449-f7e0-4f68-b9e8-933dda1916d0/resource/6e08aa19-4653-411a-ab80-d97d4feaeba5/download/oeuvres-mac.json')
-			//		fetch('https://jsonplaceholder.typicode.com/posts')
 			.then((response) => response.json())
 
 			.then((data) => {
 				console.log(data);
 				setOeuvres(data)
 			});
-
-		//	.catch((erreur) => console.log(erreur));
 	}
 
 	useEffect(() => {
 		appelApi();
-	//	renderTitres();
 	}, []);
 
-var indexOeuvre = 0;
-
 	function trouverOeuvre() {
-		oeuvres.forEach(function (element, index) {
-		//	console.log(element);
+		oeuvres.forEach(function (element) {
 			if (element.titre === titre){
-			//	console.log(element);
-				indexOeuvre = index;
+
 				tipit = element;
 				console.log(tipit);
-				console.log(indexOeuvre);
-				//renderOeuvres(indexOeuvre);
-				testOeuvres(indexOeuvre);
 			}
 		})
+		return (tipit);
 	}
-function testOeuvres(i) {
-	return (
-		<Card key={oeuvres[i].numero}>
-			<CardContent>
-				<CardHeader>
-
-					<p>{oeuvres[i].titre}</p>
-				</CardHeader>
-			</CardContent>
-		</Card>
-	)
-}
-	const renderOeuvres = (i) => {
-			return (
-				<Card key={oeuvres[i].numero}>
-					<CardContent>
-						<CardHeader>
-
-							<p>{oeuvres[i].titre}</p>
-						</CardHeader>
-					</CardContent>
-				</Card>
-			)
-		}
-
-/*	const renderOeuvres = () => {
-		return oeuvres.map((item) => {
-			return (
-				<div>
-					<ul>
-						<li key={item.numero}>
-							{item.titre}
-						</li>
-					</ul>
-				</div>
-			)
-		})
-	}*/
-
-/*	const mesTitres =[];
-
-	function renderTitres () {
-
-		oeuvres.forEach(function (element) {
-			//	console.log(element);
-
-			mesTitres.push(element.titre)
-
-		})
-		console.log(mesTitres);
-	};*/
 
 	return (
 		<div>
-			{/*<Select options={renderTitres()} onChange={(e) => setTitre(e.target.value)}/>*/}
 
 			<Input type="text" value={oeuvres.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
-			{/*<Select options={oeuvres.numero} value={oeuvres.numero}/>*/}
 
 			<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
 			<div>
-				{console.log(global.tipit)}
-				<CardExemple  oeuvre  = {tipit}/>
-				{/*{renderOeuvres(tipit)}*/}
-
-				<Card key={oeuvres[1].numero}>
-					<CardContent>
-						<CardHeader>
-
-							<p>{oeuvres[1].titre}</p>
-							<p>{oeuvres[1].libelleNomsArtistes}</p>
-							<p>{oeuvres[1].dateProduction}</p>
-
-						</CardHeader>
-					</CardContent>
-				</Card>
+				{console.log("uneOeuvre")}
+				{console.log(uneOeuvre)}
+				<CardExemple  oeuvre  = {uneOeuvre}/>
 			</div>
+
 		</div>
 	)
 }
