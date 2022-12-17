@@ -1,8 +1,9 @@
 // valeurs disponibles dans le json:
 /*{libelleNomsArtistes, titre, dateProduction, categorie, materiaux, dimensions, lieuProduction, cultures, emplacementHorsMurs, provenance, collection, departement, dateAcquisition, numero, oeuvrePrincipale, elements, nomsArtistesTries, artistes, evenements, publications, id}*/
 
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Input, Select} from "semantic-ui-react";
+import SelectExample from "./SelectExample";
 
 const RechercheMusee = () => {
 
@@ -31,6 +32,7 @@ const RechercheMusee = () => {
 
 	useEffect(() => {
 		appelApi();
+		renderTitres();
 	}, []);
 
 	function trouverOeuvre() {
@@ -57,10 +59,20 @@ const RechercheMusee = () => {
 		})
 	}
 
+	const mesTitres =[];
+
+	const renderTitres = () => {
+		 oeuvres.map((item) => {
+			// console.log(item.titre);
+			mesTitres.push(item.titre)
+
+		 })
+		console.log(mesTitres);
+	};
 
 	return (
 		<div>
-			<Select></Select>
+			<Select options={mesTitres}/>
 
 			<Input type="text" value={oeuvres.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
 			{/*<Select options={oeuvres.numero} value={oeuvres.numero}/>*/}
