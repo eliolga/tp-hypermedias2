@@ -11,6 +11,8 @@ const RechercheMusee = () => {
 
 	const [titre, setTitre] = useState("");
 	const [oeuvres, setOeuvres] = useState([]);
+	
+	const [uneOeuvre, setUneOeuvre] = useState({})
 //	const [isLoading, setIsLoading] = useState(true);
 
 	const appelApi = () => {
@@ -85,6 +87,8 @@ const RechercheMusee = () => {
 
 			<Button onClick={event => trouverOeuvre(event.target.value)}>Recherche par titre</Button>
 			<div>
+				{console.log(uneOeuvre)}
+				<CardExemple  oeuvre  = {uneOeuvre}/>
 				{/*{renderOeuvres()}*/}
 			</div>
 
