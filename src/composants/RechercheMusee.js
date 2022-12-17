@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 const RechercheMusee = () => {
 
 	const appelApi = () => {
-	//	setIsLoading(true)
+			setIsLoading(true)
 
 		//event.preventDefault();
 		// get request
@@ -15,41 +15,49 @@ const RechercheMusee = () => {
 			.then((response) => response.json())
 			.then((data) => {
 				setOeuvres(data)
-	//			setIsLoading(false)
+							setIsLoading(false)
 
 			});
 		//	.catch((erreur) => console.log(erreur));
 	}
 
 	const [oeuvres, setOeuvres] = useState([]);
-	//const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 
 
 	useEffect(() => {
 		appelApi();
 	}, []);
 
+const tabOeuvres = [];
+
+	tabOeuvres.push(oeuvres.at(1));
+	tabOeuvres.push(oeuvres.at(2));
+	tabOeuvres.push(oeuvres.at(3));
 
 
+	const renderOeuvres = () => {
+		return tabOeuvres.map((item) => {
+			return (
+				<div>
+					<ul>
+						<li key={item.numero}>
+							{item.titre}, {item.libelleNomsArtistes}, {item.dateProduction}
+						</li>
+					</ul>
+				</div>
+			)
+		})
+	}
 
 
 	return (
 		<div>
-{/*
-			<button onClick={appelApi}>Appel API MAC</button>
-*/}
-			<ul>
-				{oeuvres.map((item) => <li key={item.numero}>
-						{item.titre}, {item.libelleNomsArtistes}, {item.dateProduction}
-					</li>)}
-			</ul>
-{/*
-			<pre>{JSON.stringify(oeuvres, null, 2)}</pre>
-*/}
-{/*
-			<button onClick={appelApi}>Load</button>
-*/}
 
+			<button onClick={renderOeuvres}>Appel API MAC</button>
+			<div>
+				{renderOeuvres()}
+			</div>
 		</div>
 	)
 }
