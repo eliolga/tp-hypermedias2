@@ -3,7 +3,7 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 
 const CardExampleCard = (props) => (
 	<Card>
-		<Image src="https://macrepertoire.macm.org/media/oeuvres/collections/{props.oeuvre.dateAquis}/M/A%2078%2077%20PH%201_IN001.jpg" wrapped ui={false} />
+		<Image src={"https://macrepertoire.macm.org/media/oeuvres/collections/"+props.oeuvre.dateAcquisition + "/M/"+ props.oeuvre.numero+ "_IN001.jpg"} wrapped ui={false} />
 		<Card.Content>
 			<Card.Header>{props.oeuvre.titre}</Card.Header>
 			<Card.Meta>
