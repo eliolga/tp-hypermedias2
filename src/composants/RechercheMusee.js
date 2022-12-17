@@ -11,8 +11,12 @@ const RechercheMusee = () => {
 
 	const [titre, setTitre] = useState("");
 	const [oeuvres, setOeuvres] = useState([]);
-	
+	var tipit = {};
 	const [uneOeuvre, setUneOeuvre] = useState({})
+	const uneOeuvreHandler = () =>{
+		setUneOeuvre(tipit);
+	}
+
 //	const [isLoading, setIsLoading] = useState(true);
 
 	const appelApi = () => {
@@ -43,9 +47,12 @@ const RechercheMusee = () => {
 		//	console.log(element);
 			if (element.titre === titre){
 			//	console.log(element);
-				uneOeuvre = element;
-				console.log(uneOeuvre);
-				renderOeuvres();
+				indexOeuvre = index;
+				tipit = element;
+				console.log(tipit);
+				console.log(indexOeuvre);
+				//renderOeuvres(indexOeuvre);
+				testOeuvres(indexOeuvre);
 			}
 		})
 	}
@@ -85,7 +92,7 @@ const RechercheMusee = () => {
 			<Input type="text" value={oeuvres.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
 			{/*<Select options={oeuvres.numero} value={oeuvres.numero}/>*/}
 
-			<Button onClick={event => trouverOeuvre(event.target.value)}>Recherche par titre</Button>
+			<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
 			<div>
 				{console.log(uneOeuvre)}
 				<CardExemple  oeuvre  = {uneOeuvre}/>
