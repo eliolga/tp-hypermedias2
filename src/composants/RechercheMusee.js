@@ -61,25 +61,27 @@ const RechercheMusee = () => {
 
 	const mesTitres =[];
 
-	const renderTitres = () => {
-		 oeuvres.map((item) => {
-			// console.log(item.titre);
-			mesTitres.push(item.titre)
+	function renderTitres () {
 
-		 })
+		oeuvres.forEach(function (element) {
+			//	console.log(element);
+
+			mesTitres.push(element.titre)
+
+		})
 		console.log(mesTitres);
 	};
 
 	return (
 		<div>
-			<Select options={mesTitres}/>
+			{/*<Select options={renderTitres()} onChange={(e) => setTitre(e.target.value)}/>*/}
 
 			<Input type="text" value={oeuvres.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
 			{/*<Select options={oeuvres.numero} value={oeuvres.numero}/>*/}
 
 			<Button onClick={appelApi}>Recherche par titre</Button>
 			<div>
-				{renderOeuvres()}
+				{/*{renderOeuvres()}*/}
 			</div>
 
 		</div>
