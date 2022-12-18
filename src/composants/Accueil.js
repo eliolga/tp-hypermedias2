@@ -19,9 +19,11 @@ const Accueil = () => {
 
 	const renderOeuvres = () => {
 		return oeuvres.map((item) => {
+
+		let path = `/Recherche/${item.numero}`
             if (item.titre.length<7) {
                 return (
-                    <Link to="/Recherche/:titre" >{item.titre} / </Link>
+                    <Link to = {path} >{item.titre} / </Link>
                 )
             }
             else return null;
