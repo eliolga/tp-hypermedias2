@@ -2,7 +2,7 @@
 /*{libelleNomsArtistes, titre, dateProduction, categorie, materiaux, dimensions, lieuProduction, cultures, emplacementHorsMurs, provenance, collection, departement, dateAcquisition, numero, oeuvrePrincipale, elements, nomsArtistesTries, artistes, evenements, publications, id}*/
 
 import React, {useEffect, useState} from "react";
-import {Button, Input} from "semantic-ui-react";
+import {Button, Container, Input} from "semantic-ui-react";
 import CardExemple from "./CardExemple";
 
 const RechercheMusee = () => {
@@ -12,7 +12,7 @@ const RechercheMusee = () => {
 	const [oeuvres, setOeuvres] = useState([]);
 	var tipit = {};
 	const [uneOeuvre, setUneOeuvre] = useState({})
-	const uneOeuvreHandler = () =>{
+	const uneOeuvreHandler = () => {
 		console.log("uneOeuvreHandler")
 		tipit = trouverOeuvre()
 		console.log(tipit)
@@ -34,7 +34,7 @@ const RechercheMusee = () => {
 
 	function trouverOeuvre() {
 		oeuvres.forEach(function (element) {
-			if (element.titre === titre){
+			if (element.titre === titre) {
 
 				tipit = element;
 				console.log(tipit);
@@ -44,16 +44,16 @@ const RechercheMusee = () => {
 	}
 
 	return (
-		<div>
+		<Container>
 
 			<Input type="text" value={oeuvres.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
 
 			<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
 			<div>
-				<CardExemple  oeuvre  = {uneOeuvre}/>
+				{uneOeuvre !== "" ? <CardExemple oeuvre={uneOeuvre}/> : undefined}
 			</div>
 
-		</div>
+		</Container>
 	)
 }
 export default RechercheMusee;
