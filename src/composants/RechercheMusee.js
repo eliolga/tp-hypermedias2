@@ -6,13 +6,14 @@ import {Button, Container, Input} from "semantic-ui-react";
 import CardExemple from "./CardExemple";
 
 const RechercheMusee = (props) => {
-
 	const [titre, setTitre] = useState("");
 	var tipit = {};
 	const [uneOeuvre, setUneOeuvre] = useState({})
 	const uneOeuvreHandler = () => {
-		tipit = trouverOeuvre()
-		setUneOeuvre(tipit);
+		setUneOeuvre(trouverOeuvre());
+	}
+	if (props.oeuvresMoinsDe7){
+		setUneOeuvre(props.oeuvresMoinsDe7);
 	}
 
 	function trouverOeuvre() {
@@ -28,7 +29,7 @@ const RechercheMusee = (props) => {
 	return (
 		<Container>
 			<h1>Recherche</h1>
-			<Input type="text" value={props.oeuvres.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
+			<Input type="text" value={uneOeuvre.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
 
 			<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
 			<div>
