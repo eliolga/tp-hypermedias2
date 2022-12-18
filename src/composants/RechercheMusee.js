@@ -50,7 +50,7 @@ const RechercheMusee = () => {
 
 			<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
 			<div>
-				{uneOeuvre !== "" ? <CardExemple oeuvre={uneOeuvre}/> : undefined}
+				{uneOeuvre.titre !== undefined ? <CardExemple oeuvre={uneOeuvre}/> : undefined}
 			</div>
 
 		</Container>
