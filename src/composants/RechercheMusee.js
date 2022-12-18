@@ -7,15 +7,12 @@ import CardExemple from "./CardExemple";
 
 const RechercheMusee = () => {
 
-
 	const [titre, setTitre] = useState("");
 	const [oeuvres, setOeuvres] = useState([]);
 	var tipit = {};
 	const [uneOeuvre, setUneOeuvre] = useState({})
 	const uneOeuvreHandler = () => {
-		console.log("uneOeuvreHandler")
 		tipit = trouverOeuvre()
-		console.log(tipit)
 		setUneOeuvre(tipit);
 	}
 	const appelApi = () => {
@@ -23,7 +20,6 @@ const RechercheMusee = () => {
 			.then((response) => response.json())
 
 			.then((data) => {
-				console.log(data);
 				setOeuvres(data)
 			});
 	}
@@ -37,7 +33,6 @@ const RechercheMusee = () => {
 			if (element.titre === titre) {
 
 				tipit = element;
-				console.log(tipit);
 			}
 		})
 		return (tipit);
