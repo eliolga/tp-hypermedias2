@@ -2,8 +2,7 @@
 /*{libelleNomsArtistes, titre, dateProduction, categorie, materiaux, dimensions, lieuProduction, cultures, emplacementHorsMurs, provenance, collection, departement, dateAcquisition, numero, oeuvrePrincipale, elements, nomsArtistesTries, artistes, evenements, publications, id}*/
 
 import React, {useEffect, useState} from "react";
-import {Button, Input, Select} from "semantic-ui-react";
-import SelectExample from "./SelectExample";
+import {Button, Input} from "semantic-ui-react";
 import CardExemple from "./CardExemple";
 
 const RechercheMusee = () => {
@@ -51,8 +50,6 @@ const RechercheMusee = () => {
 
 			<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
 			<div>
-				{console.log("uneOeuvre")}
-				{console.log(uneOeuvre)}
 				<CardExemple  oeuvre  = {uneOeuvre}/>
 			</div>
 
