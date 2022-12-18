@@ -32,6 +32,7 @@ const Accueil = () => {
 	return (
 		<div>
             <h1>Titres de moins de 7 caractères pour la recherche</h1>
+            <p><em>TODO onClick, passer le titre en paramètres vers la barre de recherche de RechercheMusee</em></p>
 			{renderOeuvres()}
 
 		</div>)
