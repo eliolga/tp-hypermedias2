@@ -5,6 +5,7 @@ import MenuExampleAttached from "./composants/Menu";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Accueil from "./composants/Accueil";
 import {Container} from "semantic-ui-react";
+import Guide from "./composants/Guide";
 
 export default function App() {
 
@@ -18,6 +19,7 @@ export default function App() {
             <Routes>
                <Route path="/" element={<Accueil/>}/>
                <Route path="/Recherche" element={<RechercheMusee/>}/>
+               <Route path="/Guide" element={<Guide/>}/>
             </Routes>
          </Container>
 
