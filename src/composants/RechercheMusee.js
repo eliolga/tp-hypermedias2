@@ -1,35 +1,22 @@
 // valeurs disponibles dans le json:
 /*{libelleNomsArtistes, titre, dateProduction, categorie, materiaux, dimensions, lieuProduction, cultures, emplacementHorsMurs, provenance, collection, departement, dateAcquisition, numero, oeuvrePrincipale, elements, nomsArtistesTries, artistes, evenements, publications, id}*/
 
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Button, Container, Input} from "semantic-ui-react";
 import CardExemple from "./CardExemple";
 
-const RechercheMusee = () => {
+const RechercheMusee = (props) => {
 
 	const [titre, setTitre] = useState("");
-	const [oeuvres, setOeuvres] = useState([]);
 	var tipit = {};
 	const [uneOeuvre, setUneOeuvre] = useState({})
 	const uneOeuvreHandler = () => {
 		tipit = trouverOeuvre()
 		setUneOeuvre(tipit);
 	}
-	const appelApi = () => {
-		fetch('https://www.donneesquebec.ca/recherche/dataset/3b475449-f7e0-4f68-b9e8-933dda1916d0/resource/6e08aa19-4653-411a-ab80-d97d4feaeba5/download/oeuvres-mac.json')
-			.then((response) => response.json())
-
-			.then((data) => {
-				setOeuvres(data)
-			});
-	}
-
-	useEffect(() => {
-		appelApi();
-	}, []);
 
 	function trouverOeuvre() {
-		oeuvres.forEach(function (element) {
+		props.oeuvres.forEach(function (element) {
 			if (element.titre === titre) {
 
 				tipit = element;
@@ -40,8 +27,8 @@ const RechercheMusee = () => {
 
 	return (
 		<Container>
-
-			<Input type="text" value={oeuvres.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
+			<h1>Recherche</h1>
+			<Input type="text" value={props.oeuvres.titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
 
 			<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
 			<div>
