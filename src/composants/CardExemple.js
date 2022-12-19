@@ -1,20 +1,16 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import {Card, Image} from 'semantic-ui-react'
 
 const CardExampleCard = (props) => (
 	<Card>
-		<Image src={"https://macrepertoire.macm.org/media/oeuvres/collections/"+props.oeuvre.dateAcquisition + "/M/"+ props.oeuvre.numero+ "_IN001.jpg"} wrapped ui={false} />
+		<Image src={"https://macrepertoire.macm.org/media/oeuvres/collections/" + props.oeuvre.dateAcquisition + "/M/" + props.oeuvre.numero + "_IN001.jpg"} wrapped ui={false}/>
 		<Card.Content>
 			<Card.Header>{props.oeuvre.titre}</Card.Header>
-			<Card.Meta>
-				<span className='date'>produit en {props.oeuvre.dateProduction}</span>
-			</Card.Meta>
-			<Card.Description>
-				{props.oeuvre.materiaux}
-			</Card.Description>
+			<Card.Description>{props.oeuvre.libelleNomsArtistes}</Card.Description>
+			<Card.Meta>{props.oeuvre.dateProduction}</Card.Meta>
 		</Card.Content>
 		<Card.Content extra>
-
+			{props.oeuvre.materiaux}
 		</Card.Content>
 	</Card>
 )
