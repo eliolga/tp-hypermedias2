@@ -7,7 +7,6 @@ import Accueil from "./composants/Accueil";
 import {Container} from "semantic-ui-react";
 import Guide from "./composants/Guide";
 import OeuvreAuHasard from "./composants/OeuvreAuHasard";
-import RechercheMusee from "./composants/RechercheMusee";
 
 
 export default function App() {
