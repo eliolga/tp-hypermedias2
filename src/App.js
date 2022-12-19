@@ -1,13 +1,12 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import RechercheMusee from "./composants/RechercheMusee";
-import MenuExampleAttached from "./composants/Menu";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Accueil from "./composants/Accueil";
-import {Container} from "semantic-ui-react";
 import Guide from "./composants/Guide";
+import MenuExampleAttached from "./composants/Menu";
+import RechercheMusee from "./composants/RechercheMusee";
+import {Container} from "semantic-ui-react";
 import OeuvreAuHasard from "./composants/OeuvreAuHasard";
-
 
 export default function App() {
    const [oeuvres, setOeuvres] = useState({})
@@ -43,7 +42,6 @@ export default function App() {
                <Route path="/Guide" element={<Guide/>}/>
             </Routes>
          </Container>
-
       </BrowserRouter>
    );
 }
