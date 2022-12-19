@@ -2,7 +2,7 @@
 /*{libelleNomsArtistes, titre, dateProduction, categorie, materiaux, dimensions, lieuProduction, cultures, emplacementHorsMurs, provenance, collection, departement, dateAcquisition, numero, oeuvrePrincipale, elements, nomsArtistesTries, artistes, evenements, publications, id}*/
 
 import React, {useState} from "react";
-import {Button, Container} from "semantic-ui-react";
+import {Button} from "semantic-ui-react";
 import CardExemple from "./CardOeuvre";
 
 const OeuvreAuHasard = (props) => {
@@ -19,15 +19,14 @@ const OeuvreAuHasard = (props) => {
    }
 
    return (
-      <Container>
-
+      <>
 
          <Button onClick={uneOeuvreHandler}>Afficher une oeuvre au hasard</Button>
          <div>
             {uneOeuvre.titre !== undefined ? <CardExemple oeuvre={uneOeuvre}/> : undefined}
          </div>
 
-      </Container>
+      </>
    )
 }
 export default OeuvreAuHasard;

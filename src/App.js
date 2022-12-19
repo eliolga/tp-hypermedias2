@@ -5,7 +5,7 @@ import Accueil from "./composants/Accueil";
 import Guide from "./composants/Guide";
 import MenuPrincipal from "./composants/Menu";
 import RechercheMusee from "./composants/RechercheMusee";
-import {Container, Grid} from "semantic-ui-react";
+import {Container} from "semantic-ui-react";
 import OeuvreAuHasard from "./composants/OeuvreAuHasard";
 
 export default function App() {
@@ -28,7 +28,7 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			<Container>
-
+				<br/>
 				<h1>Musée d'art contemporain de Montréal</h1>
 				<MenuPrincipal/>
 

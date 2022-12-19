@@ -1,6 +1,6 @@
 import React from 'react'
 const Guide = () => (
-	<div>
+	<>
 		<h1>Guide d'utilisation</h1>
 
 		<h2>Bienvenue dans l’application du Musée d’art contemporain de Montréal</h2>
@@ -10,6 +10,6 @@ const Guide = () => (
 		<p>Vous pouvez également consulter une oeuvre au hasard dans la section "Oeuvre au hasard"</p>
 
 		<p><em>Remarque: Vous trouverez des titres d’une sélection restreinte d’oeuvres sur notre page d’accueil.</em></p>
-	</div>)
+	</>)
 
 export default Guide

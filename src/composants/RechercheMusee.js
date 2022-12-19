@@ -1,8 +1,8 @@
 // valeurs disponibles dans le json:
 /*{libelleNomsArtistes, titre, dateProduction, categorie, materiaux, dimensions, lieuProduction, cultures, emplacementHorsMurs, provenance, collection, departement, dateAcquisition, numero, oeuvrePrincipale, elements, nomsArtistesTries, artistes, evenements, publications, id}*/
 
-import React, {Fragment, useEffect, useState} from "react";
-import {Button, Container, Input} from "semantic-ui-react";
+import React, {useEffect, useState} from "react";
+import {Button, Input} from "semantic-ui-react";
 import CardExemple from "./CardOeuvre";
 /*
 * Le composant RechercheMusee Permet de faire la recherche d’un oeuvre du musée d’art contemporain à l’aide de son titre

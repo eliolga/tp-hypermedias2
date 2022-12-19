@@ -3,7 +3,7 @@ import {Dropdown, Menu} from 'semantic-ui-react'
 import {NavLink} from "react-router-dom";
 
 const MenuPrincipal = () => (
-	<div>
+
 		<Menu attached='top'>
 			<Dropdown item icon='bars' simple>
 				<Dropdown.Menu>
@@ -14,6 +14,6 @@ const MenuPrincipal = () => (
 				</Dropdown.Menu>
 			</Dropdown>
 		</Menu>
-	</div>)
+	)
 
 export default MenuPrincipal
