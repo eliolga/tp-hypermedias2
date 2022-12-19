@@ -1,7 +1,7 @@
 // valeurs disponibles dans le json:
 /*{libelleNomsArtistes, titre, dateProduction, categorie, materiaux, dimensions, lieuProduction, cultures, emplacementHorsMurs, provenance, collection, departement, dateAcquisition, numero, oeuvrePrincipale, elements, nomsArtistesTries, artistes, evenements, publications, id}*/
 
-import React, {useEffect, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import {Button, Container, Input} from "semantic-ui-react";
 import CardExemple from "./CardOeuvre";
 /*
@@ -16,9 +16,9 @@ const RechercheMusee = (props) => {
 	const uneOeuvreHandler = () => {
 		setUneOeuvre(trouverOeuvre());
 	}
-	useEffect(() =>{
-		setTitre(props.titrePasse);
-		},[props.titrePasse]
+	useEffect(() => {
+			setTitre(props.titrePasse);
+		}, [props.titrePasse]
 	)
 
 	/*Parcourir le tableau d’oeuvre en comparant le titre entré pour retourner l’oeuvre désirée*/
@@ -30,9 +30,10 @@ const RechercheMusee = (props) => {
 		})
 		return (oeuvreChoisie);
 	}
+
 	console.log(uneOeuvre);
 	return (
-		<Container>
+		<>
 			<h1>Recherche</h1>
 			<Input type="text" value={titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
 
@@ -43,7 +44,7 @@ const RechercheMusee = (props) => {
 			{uneOeuvre.titre !== undefined ? <CardExemple oeuvre={uneOeuvre}/> : undefined}
 			</div>
 
-		</Container>
+		</>
 	)
 }
 export default RechercheMusee;
