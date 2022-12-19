@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card, Image} from 'semantic-ui-react'
 
-const CardExampleCard = (props) => (
+const CardOeuvre = (props) => (
 	<Card>
 		<Image src={"https://macrepertoire.macm.org/media/oeuvres/collections/" + props.oeuvre.dateAcquisition + "/M/" + props.oeuvre.numero + "_IN001.jpg"} wrapped ui={false}/>
 		<Card.Content>
@@ -15,4 +15,4 @@ const CardExampleCard = (props) => (
 	</Card>
 )
 
-export default CardExampleCard
+export default CardOeuvre

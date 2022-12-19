@@ -3,7 +3,7 @@
 
 import React, {useEffect, useState} from "react";
 import {Button, Container, Input} from "semantic-ui-react";
-import CardExemple from "./CardExemple";
+import CardExemple from "./CardOeuvre";
 /*
 * Le composant RechercheMusee Permet de faire la recherche d’un oeuvre du musée d’art contemporain à l’aide de son titre
 * Elle affiche une image (si elle est disponible) Son titre, l’année de production les matériaux qui la compose et

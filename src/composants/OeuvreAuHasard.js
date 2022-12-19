@@ -3,7 +3,7 @@
 
 import React, {useState} from "react";
 import {Button, Container} from "semantic-ui-react";
-import CardExemple from "./CardExemple";
+import CardExemple from "./CardOeuvre";
 
 const OeuvreAuHasard = (props) => {
 

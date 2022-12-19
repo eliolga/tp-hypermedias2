@@ -2,7 +2,7 @@ import React from 'react'
 import {Dropdown, Menu} from 'semantic-ui-react'
 import {NavLink} from "react-router-dom";
 
-const MenuExampleAttached = () => (
+const MenuPrincipal = () => (
 	<div>
 		<Menu attached='top'>
 			<Dropdown item icon='bars' simple>
@@ -16,4 +16,4 @@ const MenuExampleAttached = () => (
 		</Menu>
 	</div>)
 
-export default MenuExampleAttached
+export default MenuPrincipal

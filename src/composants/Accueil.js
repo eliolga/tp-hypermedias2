@@ -24,15 +24,15 @@ const Accueil = (props) => {
          let path = `/Recherche/${item.numero}`
          if (item.titre.length < 7) {
             return (
-               <Link to={path} onClick={() => props.choisirTitre(item.titre)}>{item.titre}  </Link>
+               <Link to={path} onClick={() => props.choisirTitre(item.titre)}>{item.titre} / </Link>
             )
          } else return null;
       })
    }
    return (
-      <div>
-         <h1>Titres de moins de 7 caractères pour la recherche</h1>
+      <>
+         <h1>Sélections rapides pour la recherche</h1>
          {renderOeuvres()}
-      </div>)
+      </>)
 }
 export default Accueil
