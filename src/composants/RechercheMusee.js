@@ -36,9 +36,11 @@ const RechercheMusee = (props) => {
 			<h1>Recherche</h1>
 			<Input type="text" value={titre} onChange={(e) => setTitre(e.target.value)} placeholder="Titre de l'oeuvre"/>
 
-			<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
+				<Button onClick={uneOeuvreHandler}>Recherche par titre</Button>
+
 			<div>
-				{uneOeuvre.titre !== undefined ? <CardExemple oeuvre={uneOeuvre}/> : undefined}
+				<br/>
+			{uneOeuvre.titre !== undefined ? <CardExemple oeuvre={uneOeuvre}/> : undefined}
 			</div>
 
 		</Container>

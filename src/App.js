@@ -25,12 +25,12 @@ export default function App() {
 		setTitreChoisi(titreChoisi);
 	};
 
-   return (
-      <BrowserRouter>
-         <Container>
+	return (
+		<BrowserRouter>
+			<Container>
 
-					<h1>Musée d'art contemporain de Montréal</h1>
-					<MenuPrincipal/>
+				<h1>Musée d'art contemporain de Montréal</h1>
+				<MenuPrincipal/>
 
 				<Routes>
 					<Route path="/" element={<Accueil choisirTitre={chooseTitre}/>}/>
