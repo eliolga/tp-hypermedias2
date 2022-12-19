@@ -7,10 +7,10 @@ import Accueil from "./composants/Accueil";
 import {Container} from "semantic-ui-react";
 import Guide from "./composants/Guide";
 import OeuvreAuHasard from "./composants/OeuvreAuHasard";
+import RechercheMusee from "./composants/RechercheMusee";
+
 
 export default function App() {
-   let { titre } = useParams();
-   const [oeuvresMoinsDe7, setMoinsDe7] = useState({})
    const [oeuvres, setOeuvres] = useState({})
    const appelApi = () => {
       fetch('https://www.donneesquebec.ca/recherche/dataset/3b475449-f7e0-4f68-b9e8-933dda1916d0/resource/6e08aa19-4653-411a-ab80-d97d4feaeba5/download/oeuvres-mac.json')
@@ -22,6 +22,10 @@ export default function App() {
    useEffect(() => {
       appelApi();
    }, []);
+   const [titreChoisi, setTitreChoisi] = useState("Saturday");
+   const chooseTitre = (titreChoisi) => {
+      setTitreChoisi(titreChoisi);
+   };
 
    return (
       <BrowserRouter>
@@ -31,10 +35,10 @@ export default function App() {
             <MenuExampleAttached/>
 
             <Routes>
-               <Route path="/" element={<Accueil/>}/>
+               <Route path="/" element={<Accueil choisirTitre = {chooseTitre}/>}/>
                <Route path="/Recherche" >
                   <Route index element={<RechercheMusee oeuvres = {oeuvres}/>}/>
-                  <Route path={":titre"} element ={ <RechercheMusee oeuvresMoinsDe7 = {oeuvresMoinsDe7}/>}/>
+                  <Route path={":titre"} element ={ <RechercheMusee titrePasse = {titreChoisi} oeuvres = {oeuvres}/>}/>
                </Route>
                <Route path="/OeuvreAuHasard" element={<OeuvreAuHasard oeuvres = {oeuvres}/>} />
                <Route path="/Guide" element={<Guide/>}/>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from "react-router-dom";
 
-const Accueil = () => {
+const Accueil = (props) => {
 
 	const [oeuvres, setOeuvres] = useState([]);
 
@@ -23,7 +23,7 @@ const Accueil = () => {
 		let path = `/Recherche/${item.numero}`
             if (item.titre.length<7) {
                 return (
-                    <Link to = {path} >{item.titre} / </Link>
+                    <Link to = {path} onClick={() => props.choisirTitre(item.titre)}>{item.titre}  </Link>
                 )
             }
             else return null;
