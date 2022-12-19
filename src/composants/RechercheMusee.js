@@ -4,10 +4,14 @@
 import React, {useEffect, useState} from "react";
 import {Button, Container, Input} from "semantic-ui-react";
 import CardExemple from "./CardExemple";
-
+/*
+* Le composant RechercheMusee Permet de faire la recherche d’un oeuvre du musée d’art contemporain à l’aide de son titre
+* Elle affiche une image (si elle est disponible) Son titre, l’année de production les matériaux qui la compose et
+* le nom de l’artiste
+* */
 const RechercheMusee = (props) => {
 	const [titre, setTitre] = useState("");
-	var tipit = {};
+	var oeuvreChoisie = {};
 	const [uneOeuvre, setUneOeuvre] = useState({})
 	const uneOeuvreHandler = () => {
 		setUneOeuvre(trouverOeuvre());
@@ -17,17 +21,14 @@ const RechercheMusee = (props) => {
 		},[props.titrePasse]
 	)
 
-
+	/*Parcourir le tableau d’oeuvre en comparant le titre entré pour retourner l’oeuvre désirée*/
 	function trouverOeuvre() {
-
 		props.oeuvres.forEach(function (element) {
 			if (element.titre === titre) {
-
-				tipit = element;
+				oeuvreChoisie = element;
 			}
 		})
-		console.log (tipit);
-		return (tipit);
+		return (oeuvreChoisie);
 	}
 	console.log(uneOeuvre);
 	return (
