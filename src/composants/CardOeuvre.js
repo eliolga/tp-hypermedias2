@@ -1,6 +1,9 @@
 import React from 'react'
 import {Card, Image} from 'semantic-ui-react'
-
+/*
+* Ce composant a pour tache l’affichage individuel de l’oeuvre choisi.
+* Utilise l’élément card de semantic ui
+* */
 const CardOeuvre = (props) => (
 	<Card.Group itemsPerRow={2}>
 		<Card>
@@ -11,7 +14,6 @@ const CardOeuvre = (props) => (
 				<Card.Header>{props.oeuvre.titre}</Card.Header>
 				<Card.Description>
 					{props.oeuvre.libelleNomsArtistes} <br/>
-
 				</Card.Description>
 				<Card.Meta>{props.oeuvre.dateProduction}
 					</Card.Meta>
