@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card, Image} from 'semantic-ui-react'
 /*
-* Ce composant a pour tache l’affichage individuel de l’oeuvre choisi.
+* Ce composant a pour tâche l’affichage individuel de l’œuvre choisie.
 * Utilise l’élément card de semantic ui
 * */
 const CardOeuvre = (props) => (
